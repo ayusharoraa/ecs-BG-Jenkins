@@ -3,14 +3,14 @@ pipeline {
     environment {
         AWS_ACCOUNT_ID="990743565507"
         AWS_DEFAULT_REGION="us-west-1" 
-	CLUSTER_NAME="default"
-	SERVICE_NAME="nodejsContainer-service"
-	TASK_DEFINITION_NAME="first-run-task-definition"
+	CLUSTER_NAME="ECR-node"
+	SERVICE_NAME="ECS-jenk"
+	TASK_DEFINITION_NAME="ecs-jenkins-Far:1"
 	DESIRED_COUNT="1"
         IMAGE_REPO_NAME="jenkins-hub"
         IMAGE_TAG="${env.BUILD_ID}"
         REPOSITORY_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}"
-	registryCredential = "docker-to-ecr"
+	registryCredential = "ecs-deploy"
     }
    
     stages {
